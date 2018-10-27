@@ -12,6 +12,8 @@ import { BlindsModule } from './components/blinds/blinds.module';
 import { LightsModule } from './components/lights/lights.module';
 import { CleaningModule } from './components/cleaning/cleaning.module';
 import { NotificationModule } from './components/notification/notification.module';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [AppComponent, TabNavBarComponent],
@@ -25,7 +27,8 @@ import { NotificationModule } from './components/notification/notification.modul
     BlindsModule,
     LightsModule,
     CleaningModule,
-    NotificationModule
+    NotificationModule,
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
   providers: [],
   bootstrap: [AppComponent]
