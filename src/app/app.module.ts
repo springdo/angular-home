@@ -8,7 +8,10 @@ import { MatTabsModule } from '@angular/material/tabs';
 import { MatIconModule } from '@angular/material/icon';
 import { AppRoutingModule } from './app-routing.module';
 import { HomeModule } from './components/home/home.module';
+import { BlindsModule } from './components/blinds/blinds.module';
 import { LightsModule } from './components/lights/lights.module';
+import { CleaningModule } from './components/cleaning/cleaning.module';
+import { NotificationModule } from './components/notification/notification.module';
 
 @NgModule({
   declarations: [AppComponent, TabNavBarComponent],
@@ -19,7 +22,10 @@ import { LightsModule } from './components/lights/lights.module';
     MatIconModule,
     AppRoutingModule,
     HomeModule,
-    LightsModule
+    BlindsModule,
+    LightsModule,
+    CleaningModule,
+    NotificationModule
   ],
   providers: [],
   bootstrap: [AppComponent]

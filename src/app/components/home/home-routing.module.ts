@@ -1,16 +1,13 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { LandingComponent } from './landing/landing.component';
+import { HLandingComponent } from './h-landing/h-landing.component';
 import { HomeComponent } from './home.component';
 
 const routes: Routes = [
   {
     path: 'home',
     component: HomeComponent,
-    children: [
-      { path: '', redirectTo: 'landing', pathMatch: 'full' },
-      { path: 'landing', component: LandingComponent }
-    ]
+    children: [{ path: 'landing', component: HLandingComponent }]
   }
 ];
 
