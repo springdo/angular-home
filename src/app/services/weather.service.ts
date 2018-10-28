@@ -4,27 +4,28 @@ import { environment } from '../../environments/environment';
 import { Observable } from 'rxjs';
 import { ErrorHandleService } from './error-handle.service';
 import { catchError } from 'rxjs/operators';
-import { Weather, Forecast } from '../models/weather';
+import { WeatherApi } from '../models/weather';
+import { ForecastApi } from '../models/forecast';
 
 @Injectable()
-export class SupportArticleService {
+export class WeatherService {
   public environment = environment;
   constructor(
     private http: HttpClient,
     private errorService: ErrorHandleService
   ) {}
 
-  getWeather(): Observable<Weather> {
+  getWeather(): Observable<WeatherApi> {
     return this.http
-      .get<Weather>(`${this.environment.weatherUrl}/api/weather`, {
+      .get<WeatherApi>(`${this.environment.weatherUrl}/api/weather`, {
         responseType: 'json'
       })
       .pipe(catchError(this.errorService.genericErr));
   }
 
-  getForecast(): Observable<Weather> {
+  getForecast(): Observable<ForecastApi> {
     return this.http
-      .get<Weather>(`${this.environment.weatherUrl}/api/forecast`, {
+      .get<ForecastApi>(`${this.environment.weatherUrl}/api/forecast`, {
         responseType: 'json'
       })
       .pipe(catchError(this.errorService.genericErr));
