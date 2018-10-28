@@ -1,13 +1,29 @@
 <div class="container ">
-  <div class="row  no-gutters">
+  <div class="row mt-4 mb-4">
     <div class="col-md-6">
-      <div md-card>
-        <pre>
-{{ weather | json }}
-        </pre>
+      <mat-card class="view-height">
+        <mat-card-title>
+          <span class="title-background">
+            {{ weather && weather.name }},
+            {{ weather && weather.sys && weather.sys.country}}</span>
+        </mat-card-title>
+        <mat-card-content>
+          <span class="w-main-temperature px-4">
+            {{ weather && weather.main.temp | number:'1.0-1'}}°C
+          </span>
+          <span>
+            <i class="px-4" [class]="this.weatherIcon"></i>
+          </span>
+          <div>
+            <span *ngFor="let item of (weather && weather.weather)"> Looks like {{ item.description }} today</span>
+          </div>
 
-      </div>
-      Column for weather
+        </mat-card-content>
+        <mat-card-footer>
+          <!-- Footer -->
+        </mat-card-footer>
+
+      </mat-card>
     </div>
     <div class="col-md-6">
       wrapper column for forecast and lights

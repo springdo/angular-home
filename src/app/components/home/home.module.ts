@@ -5,9 +5,10 @@ import { HomeRoutingModule } from './home-routing.module';
 import { HLandingComponent } from './h-landing/h-landing.component';
 import { WeatherService } from 'src/app/services/weather.service';
 import { HttpClientModule } from '@angular/common/http';
+import { MatCardModule } from '@angular/material/card';
 
 @NgModule({
-  imports: [CommonModule, HomeRoutingModule, HttpClientModule],
+  imports: [CommonModule, HomeRoutingModule, HttpClientModule, MatCardModule],
   declarations: [HomeComponent, HLandingComponent],
   providers: [WeatherService]
 })

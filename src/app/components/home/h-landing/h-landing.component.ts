@@ -13,6 +13,7 @@ export class HLandingComponent implements OnInit {
   public forecast: ForecastApi;
   public err = false;
   public errMessage: string;
+  public weatherIcon: string;
 
   constructor(private weatherService: WeatherService) {}
 
@@ -20,11 +21,26 @@ export class HLandingComponent implements OnInit {
     this.weatherService.getWeather().subscribe(
       resp => {
         this.weather = resp;
+        this.weatherIcon = this.getWeatherIcon(resp.weather[0].main);
       },
       err => {
         this.err = true;
         this.errMessage = err.message;
       }
     );
+  }
+  getWeatherIcon(weather) {
+    switch (weather) {
+      case 'Rain':
+        return 'fas fa-umbrella fa-8x ';
+      case 'Mist':
+        return 'fas fa-cloud fa-8x';
+      case 'Fog':
+        return 'fas fa-cloud fa-8x';
+      case 'Sun':
+        return 'fas fa-sun fa-8x';
+      default:
+        break;
+    }
   }
 }
