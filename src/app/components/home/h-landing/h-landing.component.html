@@ -8,12 +8,14 @@
             {{ weather && weather.sys && weather.sys.country}}</span>
         </mat-card-title>
         <mat-card-content>
-          <span class="w-main-temperature px-4">
-            {{ weather && weather.main.temp | number:'1.0-1'}}°C
-          </span>
-          <span>
-            <i class="px-4" [class]="this.weatherIcon"></i>
-          </span>
+          <div class="text-align-center">
+            <span class="w-main-temperature px-4">
+              {{ weather && weather.main.temp | number:'1.0-1'}}°C
+            </span>
+            <span>
+              <i class="px-4" [class]="this.weatherIcon"></i>
+            </span>
+          </div>
           <div class="weather-deets">
             Looks like <span *ngFor="let item of (weather && weather.weather)"> {{ item.description }} </span>today
           </div>
